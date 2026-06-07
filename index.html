@@ -103,6 +103,13 @@ em.gold{font-style:italic;color:var(--rouge);font-family:var(--serif)}
 /* ============================================================
    NAVBAR
    ============================================================ */
+.urgence-bar{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--rouge);color:var(--creme);padding:9px 16px;font-size:.84rem;font-weight:600;letter-spacing:.015em;text-align:center;position:relative;z-index:101}
+.urgence-bar strong{font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+.urgence-bar .ub-sep{opacity:.5}
+.urgence-bar .ub-num{font-weight:800;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.urgence-bar .ub-dot{width:8px;height:8px;border-radius:50%;background:var(--creme);flex:none;animation:ubpulse 1.8s infinite}
+@keyframes ubpulse{0%{box-shadow:0 0 0 0 rgba(247,244,233,.55)}70%{box-shadow:0 0 0 7px rgba(247,244,233,0)}100%{box-shadow:0 0 0 0 rgba(247,244,233,0)}}
+@media(max-width:380px){.urgence-bar{font-size:.78rem;gap:7px}}
 .nav{position:sticky;top:14px;z-index:100;padding:0 14px;margin-top:14px}
 .nav-inner{
   max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;
@@ -144,27 +151,48 @@ em.gold{font-style:italic;color:var(--rouge);font-family:var(--serif)}
 
 /* minimaliste : heading + sub + CTA centrés, calés dans la MOITIÉ HAUTE.
    La moitié basse reste libre pour le SUJET du fond hero. */
-.hero-top{position:relative;z-index:3;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:clamp(72px,10vh,116px) 0 0}
+.hero-top{position:relative;z-index:3;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:clamp(28px,4.5vh,60px) 0 0}
 .hero-content{max-width:1000px;margin:0 auto}
 .hero h1{
   color:var(--encre);font-size:clamp(2.3rem,5.6vw,4.4rem);font-weight:600;line-height:1.04;
   letter-spacing:-.022em;text-shadow:0 1px 26px rgba(252,250,243,.7);
 }
 .hero h1 em{font-style:italic;color:var(--rouge)}
-.hero .lead{color:var(--encre-doux);margin:20px auto 0;max-width:620px;font-size:clamp(1.05rem,1.6vw,1.22rem);text-shadow:0 1px 18px rgba(252,250,243,.7)}
+.hero .lead{color:rgba(58,51,45,.8);font-weight:400;margin:18px auto 0;max-width:600px;font-size:clamp(1rem,1.5vw,1.16rem);text-shadow:0 1px 16px rgba(252,250,243,.6)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;align-items:center;justify-content:center}
 .hero-cta .btn-rouge{font-size:1.05rem;padding:18px 30px}
 .hero-trust{display:inline-flex;align-items:center;gap:.55em;margin:18px auto 0;padding:9px 18px;border-radius:999px;background:rgba(247,244,233,.7);border:1px solid var(--or-ligne);color:var(--encre);font-size:.9rem;font-weight:600;letter-spacing:.005em;backdrop-filter:blur(2px)}
 .hero-trust svg{width:1.1em;height:1.1em;color:var(--rouge);flex:none}
+.hero-urgence{display:inline-flex;align-items:center;gap:.55em;margin:0 auto 22px;padding:11px 22px;border-radius:999px;background:var(--rouge);color:var(--creme);font-weight:800;font-size:clamp(.82rem,2.5vw,.95rem);letter-spacing:.07em;text-transform:uppercase;box-shadow:0 0 0 0 rgba(192,24,42,.55);animation:huPulse 1.9s infinite}
+.hero-urgence svg{width:1.3em;height:1.3em;flex:none}
+@keyframes huPulse{0%{box-shadow:0 0 0 0 rgba(192,24,42,.55)}70%{box-shadow:0 0 0 16px rgba(192,24,42,0)}100%{box-shadow:0 0 0 0 rgba(192,24,42,0)}}
+.btn-urgence{gap:.7em;padding:14px 30px;align-items:center}
+.btn-urgence svg{width:1.7em;height:1.7em;flex:none}
+.btn-urgence .cta-stack{display:flex;flex-direction:column;align-items:flex-start;line-height:1.12}
+.btn-urgence .cta-stack small{font-size:.64rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;opacity:.85}
+.btn-urgence .cta-stack b{font-size:1.4rem;font-weight:800;letter-spacing:.02em}
+@media(prefers-reduced-motion:reduce){.hero-urgence{animation:none}}
 @media(max-width:640px){
-  .hero{min-height:90svh}
+  .hero{min-height:92svh}
   .hero-bg{background-size:auto 120%;background-position:center bottom}
-  .hero-top{padding:clamp(36px,7vh,60px) 0 0}
+  .hero-top{padding:clamp(30px,5.5vh,52px) 0 0}
   .hero-content{max-width:none}
-  .hero h1{font-size:clamp(2rem,8.2vw,2.6rem);line-height:1.06}
-  .hero .lead{font-size:.96rem;line-height:1.5;margin-top:14px;max-width:330px}
-  .hero-cta{margin-top:20px}
-  .hero-cta .btn-rouge{font-size:.9rem;padding:14px 18px}
+  /* accent : la pastille urgence reste l'aimant mais devient un eyebrow compact */
+  .hero-urgence{font-size:.76rem;letter-spacing:.05em;padding:8px 15px;gap:.42em;margin-bottom:15px}
+  .hero-urgence svg{width:1.12em;height:1.12em}
+  /* titre : élément dominant */
+  .hero h1{font-size:clamp(2.05rem,8.6vw,2.55rem);line-height:1.04;letter-spacing:-.025em}
+  /* sous-titre : clairement secondaire */
+  .hero .lead{font-size:.9rem;line-height:1.45;margin-top:11px;max-width:300px;color:rgba(58,51,45,.76)}
+  /* action : le bloc d'appel, fort mais pas écrasant */
+  .hero-cta{margin-top:22px}
+  .hero-cta .btn-rouge{padding:13px 26px;font-size:1rem}
+  .btn-urgence svg{width:1.5em;height:1.5em}
+  .btn-urgence .cta-stack small{font-size:.6rem;letter-spacing:.1em}
+  .btn-urgence .cta-stack b{font-size:1.28rem}
+  /* preuve : le plus discret */
+  .hero-trust{font-size:.8rem;padding:8px 15px;margin-top:14px}
+  .hero-trust svg{width:1em;height:1em}
 }
 
 /* ============================================================
@@ -316,6 +344,7 @@ footer{background:var(--encre);padding:30px 0;text-align:center}
 }
 .fab:hover{background:var(--rouge-prof);transform:scale(1.04)}
 .fab svg{width:1.2em;height:1.2em}
+.fab-tag{position:absolute;top:-9px;right:-7px;background:var(--encre);color:var(--creme);font-size:.56rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:999px;line-height:1;box-shadow:0 4px 12px -4px rgba(30,26,23,.55);pointer-events:none}
 @keyframes fabin{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 @media(max-width:780px){.fab .lbl{display:none}.fab{padding:17px}#deroulement{padding-bottom:calc(70px + env(safe-area-inset-bottom))}#deroulement .step:last-child h3,#deroulement .step:last-child p{padding-right:72px}}
 
@@ -357,6 +386,14 @@ footer{background:var(--encre);padding:30px 0;text-align:center}
 
 <!-- icônes téléphone réutilisées inline -->
 
+<!-- ============ BARRE URGENCE ============ -->
+<a class="urgence-bar" href="tel:+33374475251" aria-label="Appel urgence 24h/24 — 03 74 47 52 51">
+  <span class="ub-dot"></span>
+  <strong>Urgence 24h/24</strong>
+  <span class="ub-sep">·</span>
+  <span class="ub-num">03 74 47 52 51</span>
+</a>
+
 <!-- ============ NAVBAR ============ -->
 <header class="nav">
   <div class="nav-inner">
@@ -385,15 +422,19 @@ footer{background:var(--encre);padding:30px 0;text-align:center}
   </div>
   <div class="wrap hero-top">
     <div class="hero-content">
-      <h1 class="reveal">Serrurier dans tout le<br><em>Haut-Rhin&nbsp;(68)</em>.</h1>
-      <p class="lead reveal d1">Ouverture, dépannage et changement de serrure, blindage, mise en sécurité. Sur place en ~30&nbsp;min, devis annoncé avant. 7j/7, 24h/24.</p>
-      <div class="hero-cta reveal d2">
-        <a class="btn btn-rouge" href="tel:+33374475251">
+      <a class="hero-urgence reveal" href="tel:+33374475251" aria-label="Appel urgence 24h sur 24">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v4m0 4h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Urgence serrurerie 24h/24
+      </a>
+      <h1 class="reveal d1">Serrurier dans tout le<br><em>Haut-Rhin&nbsp;(68)</em>.</h1>
+      <p class="lead reveal d2">Ouverture, dépannage et changement de serrure, blindage, mise en sécurité. Sur place en ~30&nbsp;min, devis annoncé avant. 7j/7, 24h/24.</p>
+      <div class="hero-cta reveal d3">
+        <a class="btn btn-rouge btn-urgence" href="tel:+33374475251">
           <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 005 5L14 13l5 2v3a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-          Appeler — 03 74 47 52 51
+          <span class="cta-stack"><small>Appel d'urgence · 24h/24</small><b>03 74 47 52 51</b></span>
         </a>
       </div>
-      <p class="hero-trust reveal d3"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Serrurier agréé par les assurances</p>
+      <p class="hero-trust reveal d4"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Serrurier agréé par les assurances</p>
     </div>
   </div>
 </section>
@@ -552,7 +593,8 @@ footer{background:var(--encre);padding:30px 0;text-align:center}
 </footer>
 
 <!-- ============ FAB APPEL ============ -->
-<a class="fab" href="tel:+33374475251" aria-label="Appeler Elsass Serrurerie au 03 74 47 52 51">
+<a class="fab" href="tel:+33374475251" aria-label="Appel urgence Elsass Serrurerie au 03 74 47 52 51">
+  <span class="fab-tag">Urgence</span>
   <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 005 5L14 13l5 2v3a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
   <span class="lbl">Appeler</span>
 </a>

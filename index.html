@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18251736617"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18251736617');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Elsass Serrurerie — Serrurier Haut-Rhin (68) · 7j/7 · Sur place ~30 min</title>
@@ -642,6 +650,31 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
   els.forEach(function(e){io.observe(e)});
 })();
+</script>
+<!-- Event snippet Click to call -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') { window.location = url; }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18251736617/_rNNCLK7wMUcEKnMjf9D',
+      'value': 1.0,
+      'currency': 'EUR',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        gtag_report_conversion(link.href);
+      });
+    });
+  });
 </script>
 </body>
 </html>

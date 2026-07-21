@@ -354,6 +354,8 @@ section{position:relative}
 /* ---------- FOOTER ---------- */
 footer{background:var(--encre);padding:30px 0;text-align:center}
 .foot-legal{color:rgba(247,244,233,.45);font-size:.8rem;letter-spacing:.02em}
+.foot-ml{color:rgba(247,244,233,.72);text-decoration:none;border-bottom:1px solid rgba(196,154,74,.4)}
+.foot-ml:hover{color:var(--or-clair);border-color:var(--or-clair)}
 
 /* ---------- FAB appel ---------- */
 .fab{
@@ -378,6 +380,210 @@ footer{background:var(--encre);padding:30px 0;text-align:center}
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* ============ PANNEAU MENTIONS LÉGALES (overlay, même fichier) ============ */
+#mentions-legales{display:none}
+#mentions-legales:target,
+#mentions-legales:has(:target){
+  display:block;position:fixed;inset:0;z-index:9000;
+  background:rgba(30,26,23,.58);
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+  animation:mlFade .22s ease-out both;
+}
+@keyframes mlFade{from{opacity:0}to{opacity:1}}
+html:has(#mentions-legales:target),
+html:has(#mentions-legales :target){overflow:hidden}
+html:has(#mentions-legales:target) .fab,
+html:has(#mentions-legales :target) .fab{display:none}
+
+#mentions-legales .ml-sheet{
+  max-width:880px;margin:0 auto;min-height:100%;
+  background:var(--creme);
+  box-shadow:0 30px 90px -30px rgba(0,0,0,.55);
+}
+#mentions-legales .ml-wrap{max-width:720px;margin:0 auto;padding:0 30px}
+
+/* --- barre collante du panneau --- */
+#mentions-legales .ml-bar{
+  position:sticky;top:0;z-index:3;
+  background:rgba(247,244,233,.94);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--creme-ligne);
+}
+#mentions-legales .ml-bar-in{
+  max-width:720px;margin:0 auto;padding:12px 30px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+}
+#mentions-legales .ml-id{display:flex;align-items:center;gap:10px;min-width:0}
+#mentions-legales .ml-id .crest{width:34px;height:34px;flex:none}
+#mentions-legales .ml-id b{
+  font-family:var(--serif);font-weight:600;font-size:.98rem;color:var(--encre);
+  display:block;line-height:1.2;letter-spacing:.005em;
+}
+#mentions-legales .ml-id small{
+  display:block;font-size:.67rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--or);font-weight:700;margin-top:1px;
+}
+#mentions-legales .ml-close{
+  flex:none;display:inline-flex;align-items:center;gap:.5em;
+  font-family:var(--sans);font-size:.78rem;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;
+  color:var(--encre);text-decoration:none;cursor:pointer;
+  border:1px solid var(--or-ligne);border-radius:999px;padding:9px 15px;
+  background:rgba(255,255,255,.6);transition:background .18s,border-color .18s;
+}
+#mentions-legales .ml-close:hover{background:#fff;border-color:var(--or)}
+#mentions-legales .ml-close svg{width:.95em;height:.95em;flex:none}
+
+/* --- en-tête --- */
+#mentions-legales .ml-head{padding:44px 0 30px;text-align:center}
+#mentions-legales .ml-eyebrow{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--or);font-weight:700;margin-bottom:15px;
+}
+#mentions-legales .ml-eyebrow::before,
+#mentions-legales .ml-eyebrow::after{content:"";height:1px;width:36px;background:var(--or-ligne)}
+#mentions-legales h2.ml-titre{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.12;
+  color:var(--encre);margin:0 0 12px;letter-spacing:-.01em;
+  display:block;
+}
+#mentions-legales .ml-maj{font-size:.84rem;color:rgba(58,51,45,.62);margin:0}
+
+/* --- sommaire --- */
+#mentions-legales .ml-toc{
+  border-top:1px solid var(--creme-ligne);
+  border-bottom:1px solid var(--creme-ligne);
+  padding:18px 0;
+}
+#mentions-legales .ml-toc ol{
+  list-style:none;margin:0;padding:0;counter-reset:mlt;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:5px 24px;
+}
+#mentions-legales .ml-toc a{
+  display:block;text-decoration:none;color:var(--encre-doux);
+  font-size:.9rem;padding:4px 0;transition:color .15s;
+}
+#mentions-legales .ml-toc a::before{
+  counter-increment:mlt;content:counter(mlt,decimal-leading-zero);
+  font-family:var(--serif);color:var(--or);font-weight:600;
+  margin-right:.6em;font-size:.85em;
+}
+#mentions-legales .ml-toc a:hover{color:var(--rouge-prof)}
+
+/* --- corps --- */
+#mentions-legales .ml-body{counter-reset:mls;padding-bottom:26px}
+#mentions-legales .ml-body p{
+  margin:0 0 13px;font-family:var(--sans);
+  font-size:1.02rem;line-height:1.75;color:var(--encre-doux);
+}
+#mentions-legales .ml-body p:last-child{margin-bottom:0}
+#mentions-legales .ml-body strong{color:var(--encre);font-weight:600}
+#mentions-legales .ml-sec{
+  padding:30px 0;border-bottom:1px solid var(--creme-ligne);
+  position:static;scroll-margin-top:74px;
+}
+#mentions-legales .ml-sec:last-child{border-bottom:0}
+#mentions-legales h3.ml-h{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(1.22rem,3.2vw,1.48rem);line-height:1.25;
+  color:var(--encre);margin:0 0 16px;
+  display:flex;gap:.6em;align-items:baseline;
+}
+#mentions-legales h3.ml-h::before{
+  counter-increment:mls;content:counter(mls,decimal-leading-zero);
+  color:var(--or);font-size:.8em;font-weight:600;flex:none;
+}
+#mentions-legales .ml-body a{
+  color:var(--rouge-prof);text-decoration:underline;text-underline-offset:3px;
+}
+#mentions-legales .ml-body a:hover{color:var(--rouge)}
+
+/* --- fiche d'identité --- */
+#mentions-legales .ml-fiche{
+  background:rgba(255,255,255,.62);border:1px solid var(--creme-ligne);
+  border-radius:14px;padding:20px 22px;margin:0 0 16px;
+}
+#mentions-legales .ml-fiche dl{
+  margin:0;display:grid;grid-template-columns:minmax(148px,36%) 1fr;gap:0;
+}
+#mentions-legales .ml-fiche dt{
+  font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--or);font-weight:700;padding:9px 0;
+  border-top:1px solid var(--creme-ligne);font-family:var(--sans);
+}
+#mentions-legales .ml-fiche dd{
+  margin:0;padding:9px 0;color:var(--encre);word-break:break-word;
+  border-top:1px solid var(--creme-ligne);
+  font-family:var(--sans);font-size:1.02rem;line-height:1.6;
+}
+#mentions-legales .ml-fiche dl>dt:first-child,
+#mentions-legales .ml-fiche dl>dt:first-child+dd{border-top:0}
+
+/* --- marqueur à compléter --- */
+#mentions-legales .ml-todo{
+  display:inline-block;font-family:var(--sans);
+  font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--rouge-prof);background:rgba(192,24,42,.06);
+  border:1px dashed var(--rouge);border-radius:6px;padding:2px 9px;line-height:1.6;
+}
+#mentions-legales .ml-note{
+  display:block;font-size:.79rem;color:rgba(58,51,45,.6);
+  font-style:italic;margin-top:3px;line-height:1.5;
+}
+
+/* --- listes & blocs --- */
+#mentions-legales .ml-pts{list-style:none;margin:0 0 13px;padding:0}
+#mentions-legales .ml-pts li{
+  position:relative;padding-left:1.15em;margin-bottom:7px;
+  font-family:var(--sans);font-size:1.02rem;line-height:1.7;color:var(--encre-doux);
+}
+#mentions-legales .ml-pts li::before{
+  content:"";position:absolute;left:0;top:.66em;
+  width:5px;height:5px;border-radius:50%;background:var(--or);
+}
+#mentions-legales .ml-bloc{
+  border-left:3px solid var(--or);padding:3px 0 3px 17px;margin:0 0 13px;
+  font-family:var(--sans);font-size:1.02rem;line-height:1.7;color:var(--encre);
+}
+#mentions-legales .ml-bloc b{display:block;font-weight:600;margin-bottom:2px}
+
+/* --- pied du panneau --- */
+#mentions-legales .ml-foot{
+  background:var(--encre);text-align:center;padding:24px 0;
+  padding-bottom:calc(24px + env(safe-area-inset-bottom));
+}
+#mentions-legales .ml-foot a{
+  color:rgba(247,244,233,.72);font-size:.8rem;letter-spacing:.02em;
+  text-decoration:none;border-bottom:1px solid rgba(196,154,74,.4);cursor:pointer;
+}
+#mentions-legales .ml-foot a:hover{color:var(--or-clair);border-color:var(--or-clair)}
+
+/* --- responsive --- */
+@media(max-width:640px){
+  #mentions-legales .ml-wrap{padding:0 20px}
+  #mentions-legales .ml-bar-in{padding:10px 20px}
+  #mentions-legales .ml-id .crest{width:30px;height:30px}
+  #mentions-legales .ml-id b{font-size:.9rem}
+  #mentions-legales .ml-id small{font-size:.62rem;letter-spacing:.1em}
+  #mentions-legales .ml-close{padding:8px 12px;font-size:.72rem}
+  #mentions-legales .ml-close .lbl-long{display:none}
+  #mentions-legales .ml-head{padding:32px 0 24px}
+  #mentions-legales .ml-toc ol{grid-template-columns:1fr}
+  #mentions-legales .ml-sec{padding:25px 0}
+  #mentions-legales .ml-fiche{padding:17px 16px}
+  #mentions-legales .ml-fiche dl{grid-template-columns:1fr}
+  #mentions-legales .ml-fiche dt{padding:11px 0 1px;border-top:1px solid var(--creme-ligne)}
+  #mentions-legales .ml-fiche dd{padding:0 0 11px;border-top:0}
+  #mentions-legales .ml-fiche dl>dt:first-child+dd{border-top:0}
+}
+@media(prefers-reduced-motion:reduce){
+  #mentions-legales:target,#mentions-legales:has(:target){animation:none}
+  #mentions-legales *{transition:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -621,7 +827,7 @@ footer{background:var(--encre);padding:30px 0;text-align:center}
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
-    <p class="foot-legal">© <span id="yr"></span> Elsass Serrurerie · Tous droits réservés</p>
+    <p class="foot-legal">© <span id="yr"></span> Elsass Serrurerie · Tous droits réservés · <a class="foot-ml" href="#mentions-legales">Mentions légales</a></p>
   </div>
 </footer>
 
@@ -677,5 +883,181 @@ function gtag_report_conversion(url) {
     });
   });
 </script>
+
+<!-- ============ MENTIONS LÉGALES (panneau intégré) ============ -->
+<section id="mentions-legales" aria-label="Mentions légales">
+  <div class="ml-sheet">
+
+    <div class="ml-bar">
+      <div class="ml-bar-in">
+        <span class="ml-id">
+          <span class="crest" style="width:34px;height:34px"></span>
+          <span>
+            <b>Elsass Serrurerie</b>
+            <small>Mentions légales</small>
+          </span>
+        </span>
+        <a class="ml-close" href="#_" data-ml-close aria-label="Fermer les mentions légales">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          <span>Fermer</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="ml-wrap">
+      <div class="ml-head">
+        <div class="ml-eyebrow">Informations légales</div>
+        <h2 class="ml-titre">Mentions légales</h2>
+        <p class="ml-maj">Dernière mise à jour : juillet 2026</p>
+      </div>
+
+      <nav class="ml-toc" aria-label="Sommaire">
+        <ol>
+          <li><a href="#ml-editeur">Éditeur du site</a></li>
+          <li><a href="#ml-activite">Activité</a></li>
+          <li><a href="#ml-hebergement">Hébergement</a></li>
+          <li><a href="#ml-propriete">Propriété intellectuelle</a></li>
+          <li><a href="#ml-donnees">Protection des données personnelles</a></li>
+          <li><a href="#ml-cookies">Cookies</a></li>
+          <li><a href="#ml-credits">Crédits</a></li>
+        </ol>
+      </nav>
+
+      <div class="ml-body">
+
+        <div class="ml-sec" id="ml-editeur">
+          <h3 class="ml-h">Éditeur du site</h3>
+          <p>Le présent site, accessible à l'adresse <strong>www.elsass-serrure.fr</strong>, est édité par :</p>
+          <div class="ml-fiche">
+            <dl>
+              <dt>Dénomination</dt>
+              <dd>Elsass Serrure</dd>
+
+              <dt>Enseigne commerciale</dt>
+              <dd>Elsass Serrurerie</dd>
+
+              <dt>Forme juridique</dt>
+              <dd><span class="ml-todo">à compléter</span></dd>
+
+              <dt>Siège social</dt>
+              <dd><span class="ml-todo">à compléter</span></dd>
+
+              <dt>SIREN / SIRET</dt>
+              <dd><span class="ml-todo">à compléter</span></dd>
+
+              <dt>Immatriculation</dt>
+              <dd><span class="ml-todo">à compléter</span><span class="ml-note">RCS de … ou Répertoire des métiers de …</span></dd>
+
+              <dt>N° TVA intracom.</dt>
+              <dd><span class="ml-todo">à compléter</span><span class="ml-note">ou « TVA non applicable, art. 293 B du CGI »</span></dd>
+
+              <dt>Directeur de la publication</dt>
+              <dd>Ilias Handouchi</dd>
+
+              <dt>Téléphone</dt>
+              <dd>06 86 26 66 20</dd>
+
+              <dt>E-mail</dt>
+              <dd><a href="mailto:elsass.serrure@gmail.com">elsass.serrure@gmail.com</a></dd>
+            </dl>
+          </div>
+        </div>
+
+        <div class="ml-sec" id="ml-activite">
+          <h3 class="ml-h">Activité</h3>
+          <p>Elsass Serrurerie exerce une activité de <strong>serrurerie et de dépannage</strong> : ouverture de porte, dépannage et changement de serrure, installation et blindage, mise en sécurité après effraction. Les interventions sont réalisées dans le département du <strong>Haut-Rhin (68)</strong>.</p>
+          <p>Conformément à l'arrêté du 24 janvier 2017 relatif à la publicité des prix des prestations de dépannage, de réparation et d'entretien dans le secteur du bâtiment, un <strong>devis est établi et communiqué au client avant toute intervention</strong>.</p>
+          <div class="ml-fiche">
+            <dl>
+              <dt>Assurance RC pro.</dt>
+              <dd><span class="ml-todo">à compléter</span><span class="ml-note">nom et adresse de l'assureur, couverture géographique du contrat</span></dd>
+            </dl>
+          </div>
+          <p>Les informations, prestations et éléments tarifaires présentés sur ce site sont fournis à titre indicatif et ne constituent pas une offre contractuelle. Seul le devis accepté par le client fait foi.</p>
+        </div>
+
+        <div class="ml-sec" id="ml-hebergement">
+          <h3 class="ml-h">Hébergement</h3>
+          <p>Le site est hébergé par :</p>
+          <div class="ml-bloc">
+            <b>Vercel Inc.</b>
+            340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis<br>
+            <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a> · <a href="mailto:privacy@vercel.com">privacy@vercel.com</a> · +1 (559) 288-7060
+          </div>
+        </div>
+
+        <div class="ml-sec" id="ml-propriete">
+          <h3 class="ml-h">Propriété intellectuelle</h3>
+          <p>L'ensemble des éléments composant ce site — structure, textes, visuels, photographies, logo, écusson, chartes graphiques et code source — est protégé par le droit de la propriété intellectuelle et demeure la propriété exclusive d'Elsass Serrure ou de ses partenaires.</p>
+          <p>Toute reproduction, représentation, modification, adaptation, diffusion ou exploitation, totale ou partielle, par quelque procédé et sur quelque support que ce soit, est <strong>interdite sans autorisation écrite préalable</strong>. Toute utilisation non autorisée est susceptible de constituer une contrefaçon au sens des articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
+          <p>Les marques, logos et signes distinctifs de tiers éventuellement reproduits sur le site demeurent la propriété de leurs titulaires respectifs.</p>
+        </div>
+
+        <div class="ml-sec" id="ml-donnees">
+          <h3 class="ml-h">Protection des données personnelles</h3>
+          <p>Ce site ne comporte <strong>aucun formulaire de collecte</strong>. Des données personnelles peuvent néanmoins être traitées lorsque vous nous contactez par téléphone ou par e-mail.</p>
+          <ul class="ml-pts">
+            <li><strong>Responsable du traitement :</strong> Elsass Serrure — <a href="mailto:elsass.serrure@gmail.com">elsass.serrure@gmail.com</a></li>
+            <li><strong>Données traitées :</strong> nom, coordonnées téléphoniques et électroniques, adresse d'intervention et informations nécessaires au traitement de votre demande.</li>
+            <li><strong>Finalités :</strong> répondre à une demande d'intervention ou de devis, exécuter la prestation et en assurer le suivi, mesurer la performance des campagnes publicitaires.</li>
+            <li><strong>Bases légales :</strong> exécution de mesures précontractuelles ou du contrat ; intérêt légitime ; consentement pour les traceurs publicitaires.</li>
+            <li><strong>Destinataires :</strong> Elsass Serrure et, pour la seule mesure publicitaire, Google Ireland Limited / Google LLC. Ces traitements peuvent impliquer un transfert hors de l'Union européenne, encadré par les garanties prévues par le RGPD.</li>
+            <li><strong>Durée de conservation :</strong> le temps nécessaire au traitement de la demande, puis trois (3) ans à compter du dernier contact. Les pièces comptables sont conservées selon les durées légales en vigueur.</li>
+          </ul>
+          <p>Conformément au Règlement (UE) 2016/679 (RGPD) et à la loi n° 78-17 du 6 janvier 1978 modifiée, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données. Ces droits s'exercent par e-mail à <a href="mailto:elsass.serrure@gmail.com">elsass.serrure@gmail.com</a>.</p>
+          <p>Vous pouvez introduire une réclamation auprès de l'autorité de contrôle :</p>
+          <div class="ml-bloc">
+            <b>CNIL</b>
+            3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07<br>
+            <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>
+          </div>
+        </div>
+
+        <div class="ml-sec" id="ml-cookies">
+          <h3 class="ml-h">Cookies</h3>
+          <p>Un cookie est un fichier déposé sur votre terminal lors de la consultation d'un site internet.</p>
+          <p>Ce site utilise <strong>Google Ads</strong> afin de mesurer les appels générés par les campagnes publicitaires. À ce titre, des <strong>cookies de mesure publicitaire</strong> peuvent être déposés par Google lors de votre visite.</p>
+          <p>Aucun autre traceur n'est utilisé : le site ne comporte ni outil de mesure d'audience tiers, ni bouton de réseau social, ni régie publicitaire. Les polices de caractères sont chargées depuis les serveurs Google Fonts, ce qui implique la transmission de votre adresse IP à Google.</p>
+          <p>Vous pouvez à tout moment paramétrer, accepter ou refuser le dépôt de cookies depuis les réglages de votre navigateur. Le refus des cookies de mesure publicitaire n'affecte ni l'accès au site, ni la possibilité de nous contacter. Pour en savoir plus : <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">politique de Google relative aux cookies</a>.</p>
+        </div>
+
+        <div class="ml-sec" id="ml-credits">
+          <h3 class="ml-h">Crédits</h3>
+          <ul class="ml-pts">
+            <li><strong>Conception, direction artistique et développement :</strong> Webfly.</li>
+            <li><strong>Identité visuelle et visuels du site :</strong> Webfly, pour le compte d'Elsass Serrure.</li>
+            <li><strong>Typographies :</strong> Fraunces et Hanken Grotesk, distribuées sous licence SIL Open Font License 1.1.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ml-foot">
+      <a href="#_" data-ml-close>Fermer et revenir au site</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  (function () {
+    var panneau = document.getElementById('mentions-legales');
+    if (!panneau) return;
+    function fermer() { location.hash = '_'; }
+    panneau.addEventListener('click', function (e) { if (e.target === panneau) fermer(); });
+    document.addEventListener('keydown', function (e) {
+      var ancre = location.hash;
+      if (e.key === 'Escape' && (ancre === '#mentions-legales' || ancre.indexOf('#ml-') === 0)) fermer();
+    });
+    panneau.querySelectorAll('.ml-toc a').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var cible = document.getElementById(a.getAttribute('href').slice(1));
+        if (cible) { e.preventDefault(); cible.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  })();
+</script>
+
 </body>
 </html>

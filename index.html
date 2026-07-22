@@ -450,7 +450,6 @@ html:has(#mentions-legales :target) .fab{display:none}
   color:var(--encre);margin:0 0 12px;letter-spacing:-.01em;
   display:block;
 }
-#mentions-legales .ml-maj{font-size:.84rem;color:rgba(58,51,45,.62);margin:0}
 
 /* --- sommaire --- */
 #mentions-legales .ml-toc{
@@ -501,39 +500,6 @@ html:has(#mentions-legales :target) .fab{display:none}
 }
 #mentions-legales .ml-body a:hover{color:var(--rouge)}
 
-/* --- fiche d'identité --- */
-#mentions-legales .ml-fiche{
-  background:rgba(255,255,255,.62);border:1px solid var(--creme-ligne);
-  border-radius:14px;padding:20px 22px;margin:0 0 16px;
-}
-#mentions-legales .ml-fiche dl{
-  margin:0;display:grid;grid-template-columns:minmax(148px,36%) 1fr;gap:0;
-}
-#mentions-legales .ml-fiche dt{
-  font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--or);font-weight:700;padding:9px 0;
-  border-top:1px solid var(--creme-ligne);font-family:var(--sans);
-}
-#mentions-legales .ml-fiche dd{
-  margin:0;padding:9px 0;color:var(--encre);word-break:break-word;
-  border-top:1px solid var(--creme-ligne);
-  font-family:var(--sans);font-size:1.02rem;line-height:1.6;
-}
-#mentions-legales .ml-fiche dl>dt:first-child,
-#mentions-legales .ml-fiche dl>dt:first-child+dd{border-top:0}
-
-/* --- marqueur à compléter --- */
-#mentions-legales .ml-todo{
-  display:inline-block;font-family:var(--sans);
-  font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--rouge-prof);background:rgba(192,24,42,.06);
-  border:1px dashed var(--rouge);border-radius:6px;padding:2px 9px;line-height:1.6;
-}
-#mentions-legales .ml-note{
-  display:block;font-size:.79rem;color:rgba(58,51,45,.6);
-  font-style:italic;margin-top:3px;line-height:1.5;
-}
-
 /* --- listes & blocs --- */
 #mentions-legales .ml-pts{list-style:none;margin:0 0 13px;padding:0}
 #mentions-legales .ml-pts li{
@@ -573,11 +539,6 @@ html:has(#mentions-legales :target) .fab{display:none}
   #mentions-legales .ml-head{padding:32px 0 24px}
   #mentions-legales .ml-toc ol{grid-template-columns:1fr}
   #mentions-legales .ml-sec{padding:25px 0}
-  #mentions-legales .ml-fiche{padding:17px 16px}
-  #mentions-legales .ml-fiche dl{grid-template-columns:1fr}
-  #mentions-legales .ml-fiche dt{padding:11px 0 1px;border-top:1px solid var(--creme-ligne)}
-  #mentions-legales .ml-fiche dd{padding:0 0 11px;border-top:0}
-  #mentions-legales .ml-fiche dl>dt:first-child+dd{border-top:0}
 }
 @media(prefers-reduced-motion:reduce){
   #mentions-legales:target,#mentions-legales:has(:target){animation:none}
@@ -908,18 +869,25 @@ function gtag_report_conversion(url) {
       <div class="ml-head">
         <div class="ml-eyebrow">Informations légales</div>
         <h2 class="ml-titre">Mentions légales</h2>
-        <p class="ml-maj">Dernière mise à jour : juillet 2026</p>
       </div>
 
       <nav class="ml-toc" aria-label="Sommaire">
         <ol>
           <li><a href="#ml-editeur">Éditeur du site</a></li>
-          <li><a href="#ml-activite">Activité</a></li>
+          <li><a href="#ml-appartenance">Appartenance du site à JOUN SERVICES</a></li>
+          <li><a href="#ml-directeur">Directeur de la publication</a></li>
+          <li><a href="#ml-conception">Conception et administration du site</a></li>
           <li><a href="#ml-hebergement">Hébergement</a></li>
+          <li><a href="#ml-activite">Activité présentée sur le site</a></li>
+          <li><a href="#ml-zone">Zone et délais d'intervention</a></li>
+          <li><a href="#ml-devis">Devis et prix des interventions</a></li>
+          <li><a href="#ml-assurances">Assurances et prise en charge</a></li>
+          <li><a href="#ml-responsabilite">Responsabilité</a></li>
           <li><a href="#ml-propriete">Propriété intellectuelle</a></li>
-          <li><a href="#ml-donnees">Protection des données personnelles</a></li>
+          <li><a href="#ml-donnees">Données personnelles</a></li>
           <li><a href="#ml-cookies">Cookies</a></li>
-          <li><a href="#ml-credits">Crédits</a></li>
+          <li><a href="#ml-liens">Liens vers des sites tiers</a></li>
+          <li><a href="#ml-droit">Droit applicable</a></li>
         </ol>
       </nav>
 
@@ -927,107 +895,174 @@ function gtag_report_conversion(url) {
 
         <div class="ml-sec" id="ml-editeur">
           <h3 class="ml-h">Éditeur du site</h3>
-          <p>Le présent site, accessible à l'adresse <strong>www.elsass-serrure.fr</strong>, est édité par :</p>
-          <div class="ml-fiche">
-            <dl>
-              <dt>Dénomination</dt>
-              <dd>Elsass Serrure</dd>
-
-              <dt>Enseigne commerciale</dt>
-              <dd>Elsass Serrurerie</dd>
-
-              <dt>Forme juridique</dt>
-              <dd><span class="ml-todo">à compléter</span></dd>
-
-              <dt>Siège social</dt>
-              <dd><span class="ml-todo">à compléter</span></dd>
-
-              <dt>SIREN / SIRET</dt>
-              <dd><span class="ml-todo">à compléter</span></dd>
-
-              <dt>Immatriculation</dt>
-              <dd><span class="ml-todo">à compléter</span><span class="ml-note">RCS de … ou Répertoire des métiers de …</span></dd>
-
-              <dt>N° TVA intracom.</dt>
-              <dd><span class="ml-todo">à compléter</span><span class="ml-note">ou « TVA non applicable, art. 293 B du CGI »</span></dd>
-
-              <dt>Directeur de la publication</dt>
-              <dd>Ilias Handouchi</dd>
-
-              <dt>Téléphone</dt>
-              <dd>06 86 26 66 20</dd>
-
-              <dt>E-mail</dt>
-              <dd><a href="mailto:elsass.serrure@gmail.com">elsass.serrure@gmail.com</a></dd>
-            </dl>
+          <p>Le site internet accessible à l'adresse <strong>https://www.elsass-serrure.fr/</strong>, présenté sous le nom commercial <strong>Elsass Serrurerie</strong>, est édité et exploité par :</p>
+          <div class="ml-bloc">
+            <b>JOUN SERVICES</b>
+            Société par actions simplifiée à associé unique — SASU<br>
+            Capital social : 1 euro<br>
+            Siège social : 60 rue François Ier, 75008 Paris, France<br>
+            SIREN : 999 215 627<br>
+            Immatriculée au Registre du commerce et des sociétés de Paris sous le numéro 999 215 627 RCS Paris<br>
+            Numéro de gestion : 2025B56588<br>
+            Identifiant européen EUID : FR7501.999215627<br>
+            Téléphone : 03 74 47 52 51
           </div>
         </div>
 
-        <div class="ml-sec" id="ml-activite">
-          <h3 class="ml-h">Activité</h3>
-          <p>Elsass Serrurerie exerce une activité de <strong>serrurerie et de dépannage</strong> : ouverture de porte, dépannage et changement de serrure, installation et blindage, mise en sécurité après effraction. Les interventions sont réalisées dans le département du <strong>Haut-Rhin (68)</strong>.</p>
-          <p>Conformément à l'arrêté du 24 janvier 2017 relatif à la publicité des prix des prestations de dépannage, de réparation et d'entretien dans le secteur du bâtiment, un <strong>devis est établi et communiqué au client avant toute intervention</strong>.</p>
-          <div class="ml-fiche">
-            <dl>
-              <dt>Assurance RC pro.</dt>
-              <dd><span class="ml-todo">à compléter</span><span class="ml-note">nom et adresse de l'assureur, couverture géographique du contrat</span></dd>
-            </dl>
-          </div>
-          <p>Les informations, prestations et éléments tarifaires présentés sur ce site sont fournis à titre indicatif et ne constituent pas une offre contractuelle. Seul le devis accepté par le client fait foi.</p>
+        <div class="ml-sec" id="ml-appartenance">
+          <h3 class="ml-h">Appartenance du site à JOUN SERVICES</h3>
+          <p>Le site Elsass Serrurerie fait intégralement partie de la société JOUN SERVICES et est exploité sous la responsabilité de celle-ci.</p>
+          <p>La dénomination « Elsass Serrurerie » est utilisée par JOUN SERVICES pour présenter et commercialiser ses services liés au dépannage et à la serrurerie.</p>
+          <p>Elsass Serrurerie ne constitue pas une société, une personne morale ou une entité juridique distincte de JOUN SERVICES.</p>
+          <p>Toutes les demandes effectuées depuis le site www.elsass-serrure.fr ou par l'intermédiaire du numéro de téléphone affiché sont reçues, gérées et traitées dans le cadre de l'activité de la société JOUN SERVICES.</p>
+        </div>
+
+        <div class="ml-sec" id="ml-directeur">
+          <h3 class="ml-h">Directeur de la publication</h3>
+          <p>Le directeur de la publication est :</p>
+          <p><strong>Monsieur Ilias Joun HANDOUCHI</strong>, en sa qualité de président de la société JOUN SERVICES.</p>
+        </div>
+
+        <div class="ml-sec" id="ml-conception">
+          <h3 class="ml-h">Conception et administration du site</h3>
+          <p>Le site a été conçu, réalisé et est administré directement par JOUN SERVICES.</p>
+          <p>Les textes, contenus, visuels, informations commerciales et éléments présents sur le site sont publiés sous la responsabilité de JOUN SERVICES.</p>
         </div>
 
         <div class="ml-sec" id="ml-hebergement">
           <h3 class="ml-h">Hébergement</h3>
-          <p>Le site est hébergé par :</p>
+          <p>Le site www.elsass-serrure.fr est hébergé par :</p>
           <div class="ml-bloc">
             <b>Vercel Inc.</b>
             340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis<br>
-            <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a> · <a href="mailto:privacy@vercel.com">privacy@vercel.com</a> · +1 (559) 288-7060
+            Téléphone : +1 (559) 288-7060<br>
+            <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a> · <a href="mailto:privacy@vercel.com">privacy@vercel.com</a>
           </div>
+        </div>
+
+        <div class="ml-sec" id="ml-activite">
+          <h3 class="ml-h">Activité présentée sur le site</h3>
+          <p>Le site www.elsass-serrure.fr présente des services liés notamment :</p>
+          <ul class="ml-pts">
+            <li>au dépannage en serrurerie ;</li>
+            <li>à l'ouverture de portes claquées, verrouillées ou bloquées ;</li>
+            <li>au dépannage et au déblocage de serrures ;</li>
+            <li>au remplacement de cylindres et de serrures ;</li>
+            <li>au blindage et au renforcement de portes ;</li>
+            <li>à la mise en sécurité après effraction ou tentative d'effraction ;</li>
+            <li>à la reproduction de clés ;</li>
+            <li>à l'organisation et à la coordination d'interventions de serrurerie.</li>
+          </ul>
+          <p>JOUN SERVICES assure notamment la réception des demandes, leur gestion administrative et commerciale, l'organisation des interventions, la coordination des prestataires ainsi que la sous-traitance des prestations techniques.</p>
+          <p>Lorsque la nature de l'intervention l'exige, les prestations techniques peuvent être confiées à des professionnels ou prestataires indépendants disposant des compétences, qualifications et assurances nécessaires.</p>
+        </div>
+
+        <div class="ml-sec" id="ml-zone">
+          <h3 class="ml-h">Zone et délais d'intervention</h3>
+          <p>Les services présentés sur le site concernent principalement le département du Haut-Rhin, notamment les secteurs de Mulhouse, Colmar, Saint-Louis, Guebwiller, Thann, Wittenheim, Illzach, Riedisheim, Cernay, Kingersheim et Rixheim.</p>
+          <p>Les zones et délais d'intervention annoncés sur le site sont fournis à titre indicatif.</p>
+          <p>Ils peuvent varier selon la disponibilité des intervenants, la commune concernée, la circulation, la distance, les conditions météorologiques, la nature de la demande et la disponibilité des pièces nécessaires.</p>
+          <p>La mention d'une intervention possible en environ 30 minutes constitue une estimation et non une garantie contractuelle, sauf engagement écrit expressément indiqué au client.</p>
+        </div>
+
+        <div class="ml-sec" id="ml-devis">
+          <h3 class="ml-h">Devis et prix des interventions</h3>
+          <p>Le prix d'une intervention dépend notamment :</p>
+          <ul class="ml-pts">
+            <li>de la nature du dépannage ;</li>
+            <li>de la complexité de l'intervention ;</li>
+            <li>de l'état de la porte ou de la serrure ;</li>
+            <li>des horaires et du caractère urgent de la demande ;</li>
+            <li>des frais de déplacement ;</li>
+            <li>des pièces, équipements et fournitures nécessaires.</li>
+          </ul>
+          <p>Le client est informé du prix ou de la méthode de calcul du prix avant le commencement de l'intervention.</p>
+          <p>Un devis ou un document contractuel précisant la nature des prestations et leur prix est présenté au client avant la réalisation des travaux. L'intervention débute après l'acceptation du devis ou du prix annoncé par le client.</p>
+          <p>Toute prestation supplémentaire rendue nécessaire en cours d'intervention doit faire l'objet d'une information préalable et de l'accord du client.</p>
+        </div>
+
+        <div class="ml-sec" id="ml-assurances">
+          <h3 class="ml-h">Assurances et prise en charge</h3>
+          <p>Une facture peut être remise au client après l'intervention.</p>
+          <p>La remise d'une facture ne garantit toutefois pas automatiquement la prise en charge de l'intervention par la compagnie d'assurance du client.</p>
+          <p>Toute indemnisation dépend des garanties prévues dans le contrat d'assurance du client, des circonstances du sinistre et de la décision de son assureur.</p>
+          <p>Le client reste responsable de la vérification des conditions de prise en charge auprès de sa propre compagnie d'assurance.</p>
+        </div>
+
+        <div class="ml-sec" id="ml-responsabilite">
+          <h3 class="ml-h">Responsabilité</h3>
+          <p>JOUN SERVICES s'efforce de fournir sur le site des informations exactes, compréhensibles et régulièrement mises à jour.</p>
+          <p>Les informations présentées sur le site sont toutefois fournies à titre général et indicatif. Elles ne remplacent pas un diagnostic réalisé sur place ni un devis établi en fonction de la situation réelle.</p>
+          <p>JOUN SERVICES ne peut garantir que le site soit accessible sans interruption, erreur ou dysfonctionnement.</p>
+          <p>La responsabilité de JOUN SERVICES ne pourra pas être engagée en cas de dommage résultant notamment :</p>
+          <ul class="ml-pts">
+            <li>d'une utilisation incorrecte du site ;</li>
+            <li>d'une interruption temporaire du site ;</li>
+            <li>d'informations inexactes ou incomplètes communiquées par le client ;</li>
+            <li>d'un événement extérieur, imprévisible ou indépendant de sa volonté ;</li>
+            <li>de l'utilisation d'un service ou d'un site internet appartenant à un tiers.</li>
+          </ul>
+          <p>Les méthodes d'ouverture ou de réparation dépendent de l'état de la porte, du type de serrure, du niveau de sécurité, de l'usure du matériel et des dommages éventuellement présents avant l'intervention.</p>
+          <p>Aucune mention du site ne peut être interprétée comme une garantie absolue d'ouverture sans détérioration dans toutes les situations.</p>
         </div>
 
         <div class="ml-sec" id="ml-propriete">
           <h3 class="ml-h">Propriété intellectuelle</h3>
-          <p>L'ensemble des éléments composant ce site — structure, textes, visuels, photographies, logo, écusson, chartes graphiques et code source — est protégé par le droit de la propriété intellectuelle et demeure la propriété exclusive d'Elsass Serrure ou de ses partenaires.</p>
-          <p>Toute reproduction, représentation, modification, adaptation, diffusion ou exploitation, totale ou partielle, par quelque procédé et sur quelque support que ce soit, est <strong>interdite sans autorisation écrite préalable</strong>. Toute utilisation non autorisée est susceptible de constituer une contrefaçon au sens des articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
-          <p>Les marques, logos et signes distinctifs de tiers éventuellement reproduits sur le site demeurent la propriété de leurs titulaires respectifs.</p>
+          <p>Le site www.elsass-serrure.fr, sa structure, ses textes, ses photographies, ses illustrations, ses éléments graphiques, ses logos et l'ensemble de ses contenus sont protégés par les règles relatives à la propriété intellectuelle.</p>
+          <p>Sauf autorisation écrite préalable de JOUN SERVICES, toute reproduction, représentation, modification, adaptation, publication, extraction ou exploitation totale ou partielle du site ou de ses contenus est interdite.</p>
+          <p>La dénomination <strong>Elsass Serrurerie</strong>, les éléments visuels associés et les contenus du site ne peuvent pas être utilisés d'une manière susceptible de créer une confusion avec les services exploités par JOUN SERVICES.</p>
         </div>
 
         <div class="ml-sec" id="ml-donnees">
-          <h3 class="ml-h">Protection des données personnelles</h3>
-          <p>Ce site ne comporte <strong>aucun formulaire de collecte</strong>. Des données personnelles peuvent néanmoins être traitées lorsque vous nous contactez par téléphone ou par e-mail.</p>
-          <ul class="ml-pts">
-            <li><strong>Responsable du traitement :</strong> Elsass Serrure — <a href="mailto:elsass.serrure@gmail.com">elsass.serrure@gmail.com</a></li>
-            <li><strong>Données traitées :</strong> nom, coordonnées téléphoniques et électroniques, adresse d'intervention et informations nécessaires au traitement de votre demande.</li>
-            <li><strong>Finalités :</strong> répondre à une demande d'intervention ou de devis, exécuter la prestation et en assurer le suivi, mesurer la performance des campagnes publicitaires.</li>
-            <li><strong>Bases légales :</strong> exécution de mesures précontractuelles ou du contrat ; intérêt légitime ; consentement pour les traceurs publicitaires.</li>
-            <li><strong>Destinataires :</strong> Elsass Serrure et, pour la seule mesure publicitaire, Google Ireland Limited / Google LLC. Ces traitements peuvent impliquer un transfert hors de l'Union européenne, encadré par les garanties prévues par le RGPD.</li>
-            <li><strong>Durée de conservation :</strong> le temps nécessaire au traitement de la demande, puis trois (3) ans à compter du dernier contact. Les pièces comptables sont conservées selon les durées légales en vigueur.</li>
-          </ul>
-          <p>Conformément au Règlement (UE) 2016/679 (RGPD) et à la loi n° 78-17 du 6 janvier 1978 modifiée, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données. Ces droits s'exercent par e-mail à <a href="mailto:elsass.serrure@gmail.com">elsass.serrure@gmail.com</a>.</p>
-          <p>Vous pouvez introduire une réclamation auprès de l'autorité de contrôle :</p>
+          <h3 class="ml-h">Données personnelles</h3>
+          <p>Le responsable du traitement des données personnelles collectées dans le cadre du site et de l'activité présentée est :</p>
           <div class="ml-bloc">
-            <b>CNIL</b>
-            3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07<br>
-            <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>
+            <b>JOUN SERVICES</b>
+            60 rue François Ier<br>
+            75008 Paris
           </div>
+          <p>Les données personnelles peuvent être recueillies lorsqu'un utilisateur contacte JOUN SERVICES par téléphone ou par l'intermédiaire des moyens de contact disponibles sur le site.</p>
+          <p>Ces données peuvent notamment comprendre :</p>
+          <ul class="ml-pts">
+            <li>le nom et le prénom ;</li>
+            <li>le numéro de téléphone ;</li>
+            <li>l'adresse d'intervention ;</li>
+            <li>l'adresse électronique ;</li>
+            <li>les informations relatives à la demande de dépannage ;</li>
+            <li>les informations nécessaires à l'établissement du devis, à l'intervention et à la facturation.</li>
+          </ul>
+          <p>Ces données sont utilisées pour répondre aux demandes, établir les devis, organiser les interventions, assurer le suivi des prestations, traiter les paiements, gérer la facturation et répondre aux éventuelles réclamations.</p>
+          <p>Elles peuvent être transmises aux prestataires et professionnels intervenant pour le compte de JOUN SERVICES lorsque cette transmission est nécessaire à la réalisation de la prestation.</p>
+          <p>Les données sont conservées uniquement pendant la durée nécessaire à leur traitement et pendant les durées légales applicables aux documents commerciaux, contractuels, fiscaux et comptables.</p>
+          <p>Conformément à la réglementation applicable, toute personne dispose d'un droit d'accès, de rectification, d'opposition, d'effacement, de limitation et, lorsque cela est applicable, de portabilité de ses données personnelles.</p>
+          <p>Toute demande relative aux données personnelles peut être adressée par courrier à :</p>
+          <div class="ml-bloc">
+            <b>JOUN SERVICES — Protection des données personnelles</b>
+            60 rue François Ier<br>
+            75008 Paris
+          </div>
+          <p>Toute personne dispose également du droit d'adresser une réclamation à la Commission nationale de l'informatique et des libertés.</p>
         </div>
 
         <div class="ml-sec" id="ml-cookies">
           <h3 class="ml-h">Cookies</h3>
-          <p>Un cookie est un fichier déposé sur votre terminal lors de la consultation d'un site internet.</p>
-          <p>Ce site utilise <strong>Google Ads</strong> afin de mesurer les appels générés par les campagnes publicitaires. À ce titre, des <strong>cookies de mesure publicitaire</strong> peuvent être déposés par Google lors de votre visite.</p>
-          <p>Aucun autre traceur n'est utilisé : le site ne comporte ni outil de mesure d'audience tiers, ni bouton de réseau social, ni régie publicitaire. Les polices de caractères sont chargées depuis les serveurs Google Fonts, ce qui implique la transmission de votre adresse IP à Google.</p>
-          <p>Vous pouvez à tout moment paramétrer, accepter ou refuser le dépôt de cookies depuis les réglages de votre navigateur. Le refus des cookies de mesure publicitaire n'affecte ni l'accès au site, ni la possibilité de nous contacter. Pour en savoir plus : <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">politique de Google relative aux cookies</a>.</p>
+          <p>Le site utilise des cookies déposés par Google dans le cadre de la mesure des appels générés par les campagnes publicitaires Google Ads.</p>
+          <p>Le site n'utilise ni outil de mesure d'audience, ni bouton de réseau social, ni régie publicitaire tierce.</p>
+          <p>Les polices de caractères utilisées par le site sont chargées depuis les serveurs Google Fonts, ce qui implique la transmission de l'adresse IP de l'utilisateur à Google.</p>
+          <p>L'utilisateur peut configurer son navigateur afin de bloquer ou de supprimer les cookies. Le refus de ces cookies n'affecte ni l'accès au site, ni la possibilité de contacter JOUN SERVICES.</p>
         </div>
 
-        <div class="ml-sec" id="ml-credits">
-          <h3 class="ml-h">Crédits</h3>
-          <ul class="ml-pts">
-            <li><strong>Conception, direction artistique et développement :</strong> Webfly.</li>
-            <li><strong>Identité visuelle et visuels du site :</strong> Webfly, pour le compte d'Elsass Serrure.</li>
-            <li><strong>Typographies :</strong> Fraunces et Hanken Grotesk, distribuées sous licence SIL Open Font License 1.1.</li>
-          </ul>
+        <div class="ml-sec" id="ml-liens">
+          <h3 class="ml-h">Liens vers des sites tiers</h3>
+          <p>Le site peut contenir des liens vers des sites internet ou services appartenant à des tiers.</p>
+          <p>JOUN SERVICES ne contrôle pas ces sites et ne peut être tenue responsable de leur contenu, de leur disponibilité, de leurs pratiques commerciales ou de leur politique de traitement des données personnelles.</p>
+        </div>
+
+        <div class="ml-sec" id="ml-droit">
+          <h3 class="ml-h">Droit applicable</h3>
+          <p>Le site www.elsass-serrure.fr et les présentes mentions légales sont soumis au droit français.</p>
+          <p>En cas de difficulté ou de litige, le client est invité à contacter en priorité JOUN SERVICES afin de rechercher une solution amiable.</p>
+          <p>À défaut d'accord amiable, le litige pourra être porté devant la juridiction compétente conformément aux règles légales applicables.</p>
         </div>
 
       </div>
